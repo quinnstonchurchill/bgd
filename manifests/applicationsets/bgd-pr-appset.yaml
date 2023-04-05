@@ -5,20 +5,20 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - pullRequest:
-      github:
-        owner: christianh814
-        repo: bgd
-        labels:
-        - preview
-      requeueAfterSeconds: 5
+    - pullRequest:
+        github:
+          owner: quinnstonchurchill
+          repo: bgd
+          labels:
+            - preview
+        requeueAfterSeconds: 5
   template:
     metadata:
-      name: 'bgd-{{branch}}-{{number}}'
+      name: "bgd-{{branch}}-{{number}}"
     spec:
       source:
-        repoURL: 'https://github.com/christianh814/bgd'
-        targetRevision: '{{head_sha}}'
+        repoURL: "https://github.com/quinnstonchurchill/bgd"
+        targetRevision: "{{head_sha}}"
         path: app/overlays/default/
       project: default
       syncPolicy:
@@ -29,4 +29,4 @@ spec:
           - CreateNamespace=true
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'bgd-{{branch}}-{{number}}'
+        namespace: "bgd-{{branch}}-{{number}}"
