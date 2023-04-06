@@ -9,16 +9,17 @@ spec:
         github:
           owner: quinnstonchurchill
           repo: bgd
-          labels:
-            - preview
+          # labels:
+          #   - preview
         requeueAfterSeconds: 5
   template:
     metadata:
       name: "bgd-{{branch}}-{{number}}"
     spec:
       source:
-        repoURL: "https://github.com/quinnstonchurchill/bgd"
-        targetRevision: "{{head_sha}}"
+        repoURL: https://github.com/quinnstonchurchill/bgd.git
+        # targetRevision: "{{head_sha}}"
+        targetRevision: HEAD
         path: app/overlays/default/
       project: default
       syncPolicy:
