@@ -9,7 +9,7 @@ spec:
   source:
     path: app/overlays/default/
     repoURL: https://github.com/quinnstonchurchill/bgd
-    targetRevision: main
+    targetRevision: HEAD
   destination:
     namespace: bgd
     server: https://kubernetes.default.svc
